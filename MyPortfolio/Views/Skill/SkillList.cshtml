@@ -1,0 +1,51 @@
+﻿@model List<Skill>
+@{
+    ViewData["Title"] = "SkillList";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Yetenek Bilgileri</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Yetenek Listesi</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-sub">
+                            Yetenek Bilgisi ile ilgili işlemleri aşağıdaki panelden yapabilirsiniz
+                        </div>
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Yetenek Adı</th>
+                                    <th scope="col">Derecesi</th>
+                                    <th scope="col">Sil</th>
+                                    <th scope="col">Güncelle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.SkillID</td>
+                                        <td>@item.Title</td>
+                                        <td>@item.Value</td>
+                                        <td><a href="/Skill/DeleteSkill/@item.SkillID" class="btn btn-danger">Sil</a></td>
+                                        <td><a href="/Skill/UpdateSkill/@item.SkillID" class="btn btn-success">Güncelle</a></td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                        <a href="/Skill/CreateSkill/" class="btn btn-primary">Yeni Yetenek Bilgisi Ekle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
